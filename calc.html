@@ -1,0 +1,106 @@
+<html>
+<head>
+
+    <script>
+
+        function reset(){
+            const valueA = document.getElementById('valueA');
+            const valueB = document.getElementById('valueB'); 
+            const result = document.getElementById('result');
+            valueA.value = '0';
+            valueB.value = '0';
+            result.value = '0';
+        
+            hideError();
+
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');  
+            errorMessage.innerHTML = message;
+            errorMessage.style.display = 'block';
+        }
+        
+        function hideError() {
+            const errorMessage = document.getElementById('errorMessage'); 
+            errorMessage.style.display = 'none';
+        }
+
+        function sum() {
+            hideError();
+
+            const valueA = document.getElementById('valueA');
+            const valueB = document.getElementById('valueB'); 
+            const textA = valueA.value;
+            if (textA =='') {
+                showError('Error! Value A is empty...');
+                return;
+            }
+            if (isNaN(textA)) {
+                showError('Error! Value A is number...');
+                return;  
+            }
+            const textB = valueB.value;
+            if (textB =='') {
+                showError('Error! Value B is empty...');
+                return;
+            }
+            if (isNaN(textB)) {
+                showError('Error! Value B is number...');
+                return; 
+            }
+            const a = parseInt(textA);
+            const b = parseInt(textB);
+            const sum = a + b;
+
+            const result = document.getElementById('result');
+            result.value = sum; 
+        }
+
+    </script>
+
+</head>
+    <body>
+
+    <div style="border: 1px solid black; padding: 30px;">
+
+        <div id="errorMessage" style="display: none; border: 1px solid darkred; background-color: lightpink; padding: 15px; margin-bottom: 30px;">
+            ERROR!
+            </div>
+
+        <div>
+
+            <div style="font-weight: bold; margin-bottom: 10px;">INPUT A:</div>
+            <input id="valueA" type="text" value="0" style="font-size: 22px;text-align: right;width: 150px;" >
+        </div>
+
+        <div style="height: 20px;"></div>
+
+        <div>
+            <div style="font-weight: bold; margin-bottom: 10px;">INPUT B:</div>
+            <input id="valueB" type="text" value="0" style="font-size: 22px;text-align: right;width: 150px;" >
+        </div>
+
+        <div style="height: 20px;"></div>
+
+        <div>
+            <div style="font-weight: bold; margin-bottom: 10px;">SUM:</div>
+            <input id="result" type="text" value="0" readonly="readonly" style="font-size: 22px;text-align: right;width: 150px;" >
+        </div>
+
+        <div style="height: 20px;"></div>
+
+        <div>
+            <button type="button" onclick="sum();">SUM</button>
+            <button type="button" onclick="reset();">RESET</button>
+        </div>
+
+    </div>
+
+    <script>
+        reset();
+    </script>
+
+    </body>
+
+</html>

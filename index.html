@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <script>
+
+            function showHelloWorld() {
+                alert('HELLO WORLD');
+            }
+
+            function sum() {
+                const a = parseInt(prompt('INPUT A:', 0));
+                const b = parseInt(prompt('INPUT B:', 0));
+                const sum = a + b;
+                alert(sum);
+            }
+
+            function test() {
+                const element = document.getElementById('testMessage');
+                element.innerHTML = '<hr />TEST<hr />';
+                element.style.display = 'block';
+                element.style.backgroundColor = 'green';
+            }
+
+            function showTime(){
+                const element = document.getElementsByName('currentTime')[0];
+                const current = new Date();
+                element.innerHTML = current.toISOString();
+
+            }
+
+            function startTime() {
+                showTime();
+                setInterval(showTime, 1000);
+
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+        <h1>DEMOJS</h1>
+
+        <div name="currentTime" style="border: 1px solid black; padding: 30px; text-align: center;">
+            TIME
+        </div>
+
+        <div id="testMessage" style="display: none; border: 1px solid black; padding: 30px; font-size: 18px; text-align: center; background-color: aliceblue;">
+            TEST MESSAGE
+        </div>
+
+        <p>
+            <button onclick="showHelloWorld();">HELLO WORLD</button>
+        </p>
+        <p>
+            <button onclick="sum();">SUM</button>
+        </p>
+
+        <p>
+            <button onclick="test();">TEST</button>
+        </p>
+
+        
+    </body>
+
+    <script>
+        startTime();
+    </script>
+
+</html>
